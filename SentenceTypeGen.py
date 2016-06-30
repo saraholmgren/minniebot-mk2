@@ -31,8 +31,7 @@ def one(bigdict):
         print("this 'nn' key has no value!")
     else:
         sentencelist.append(random.choice(bigdict['nn']))
-        
-    print(sentencelist)
+    #print(sentencelist)
 
 def two(bigdict):
     if bigdict['vbd'] == []:
@@ -51,7 +50,7 @@ def two(bigdict):
         print("this 'nn' key has no value!")
     else:
         sentencelist.append(random.choice(bigdict['nn']))
-    print(sentencelist)
+    #print(sentencelist)
 
 def three(bigdict):
     if bigdict['prp'] == []:
@@ -97,7 +96,7 @@ def three(bigdict):
             print("this 'vbd' key has no value!")
         else:
             sentencelist.append(random.choice(bigdict['vbp']))
-    print(sentencelist)
+    #print(sentencelist)
 
 def four(bigdict):
     if bigdict['in'] == []:
@@ -152,7 +151,7 @@ def four(bigdict):
         print("this jj key has no value!")
     else:
         sentencelist.append(random.choice(bigdict['jj']))
-    print(sentencelist)
+    #print(sentencelist)
 
 def five(bigdict):
     if bigdict['nn'] == []:
@@ -179,7 +178,7 @@ def five(bigdict):
         print("key 'prp' has no value!")
     else:
         sentencelist.append(random.choice(bigdict['prp']))
-    print(sentencelist)
+    #print(sentencelist)
 
 def six(bigdict):
     if bigdict['prp$'] == []:
@@ -198,7 +197,7 @@ def six(bigdict):
         print("key 'jj' has no value!")
     else:
         sentencelist.append(random.choice(bigdict['jj']))
-    print(sentencelist)
+    #print(sentencelist)
 
 def pick_type(y,bigdict):
     if y == 1:
@@ -213,3 +212,5 @@ def pick_type(y,bigdict):
         five(bigdict)
     elif y == 6:
         six(bigdict)
+
+#def gen_response():
