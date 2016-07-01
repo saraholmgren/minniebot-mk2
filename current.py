@@ -1,8 +1,8 @@
 import sys,random,re,nltk
 import SentenceTypeGen
-import ReplyGen
+#import ReplyGen
 from SentenceTypeGen import *
-from ReplyGen import *
+#from ReplyGen import *
 from textblob import TextBlob
 from random import randint
 
@@ -28,14 +28,15 @@ def PosTagger():
         sort = TextBlob(x).tags[0]
         word_tag = sort[1]
         bigdict[sort[1].lower()].append(sort[0])
-    #print(bigdict)
 PosTagger()
+
 def get_sentence():
     y = randint(1,6)
     SentenceTypeGen.pick_type(y,bigdict)
 get_sentence()
+
 def grammar(sentencelist):
-    randpunc = randint(1,4)
+    randpunc = randint(1,3)
     if randpunc == 1:
         d = '.'
         sentence_str = ' '.join(sentencelist)
@@ -56,8 +57,17 @@ grammar(sentencelist)
 def answer(question):
     low = question.lower()
     question = re.sub('[^\w]', ' ',  low).split() #list
-    print(question)
-    ReplyGen.writeout(words,question)
-    
+    #print(question)
+    #ReplyGen.writeout(words,question)
+    def writeout(words,question):
+            r = ''
+            file = open('newwords.txt','r+')
+            file.truncate()
+            words.extend(question)
+            r = ' '.join(words)
+            file.write(r)
+            file.close()
+    writeout(words,question)
+
 ##for word,tag in TextBlob("x").tags:
 ##    print(word,",",tag)

@@ -1,4 +1,4 @@
-import random
+import random,re
 from random import randint
 from textblob import TextBlob
 
@@ -12,11 +12,11 @@ sentencelist = []
 def one(bigdict):
     onelist = ['prp',]
     if bigdict['prp'] == []:
-        print("key 'prp' has no value!")
+        print("parp 'parp' has lots of value!")
     else:
         sentencelist.append(random.choice(bigdict['prp']))
     if bigdict['vbd'] == []:
-        print("key 'vbd' has no value!")
+        print("key 'void' has no value!")
     else:
         sentencelist.append(random.choice(bigdict['vbd']))
     if bigdict['dt'] == []:
@@ -108,7 +108,7 @@ def four(bigdict):
     else:
         sentencelist.append(random.choice(bigdict['dt']))
     if bigdict['nns'] == []:
-        print("this 'nns' has no value!")
+        print("this 'nipple' has no value!")
     else:
         sentencelist.append(random.choice(bigdict['nns']))
     z = randint(1,2)
@@ -128,7 +128,7 @@ def four(bigdict):
         c = 'vbp'
 
     if bigdict['jj'] == []:
-        print("this 'jj' key has no value!")
+        print("this 'jj' key hole has no value!")
     else:
         sentencelist.append(random.choice(bigdict['jj']))
     if bigdict['jjs'] == []:
