@@ -12,15 +12,15 @@ sentencelist = []
 def one(bigdict):
     onelist = ['prp',]
     if bigdict['prp'] == []:
-        print("parp 'parp' has lots of value!")
+        print("'prp' has lots of value!")
     else:
         sentencelist.append(random.choice(bigdict['prp']))
     if bigdict['vbd'] == []:
-        print("key 'void' has no value!")
+        print("key 'vbd' has no value!")
     else:
         sentencelist.append(random.choice(bigdict['vbd']))
     if bigdict['dt'] == []:
-        print("this 'dt' has no value!")
+        print("'dt' has no value!")
     else:
         sentencelist.append(random.choice(bigdict['dt']))
     if bigdict['jj'] == []:
@@ -31,6 +31,7 @@ def one(bigdict):
         print("this 'nn' key has no value!")
     else:
         sentencelist.append(random.choice(bigdict['nn']))
+    
     #print(sentencelist)
 
 def two(bigdict):
@@ -212,5 +213,3 @@ def pick_type(y,bigdict):
         five(bigdict)
     elif y == 6:
         six(bigdict)
-
-#def gen_response():
