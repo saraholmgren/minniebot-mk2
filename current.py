@@ -1,18 +1,14 @@
-import sys,random,re,nltk,os
-import SentenceTypeGen
+import sys,random,re,nltk,os,SentenceTypeGen
 from SentenceTypeGen import *
 from textblob import TextBlob
 from random import randint
-
-## TODO: fix the fucking writing out thing
 
 global words
 words = []
 bigdict = {'cc':[],'cd':[],'dt':[],'ex':[],'fw':[],'in':[],'jj':[],'jjr':[],'jjs':[],'ls':[],'md':[],'nn':[],'nns':[],'nnp':[],'nnps':[],'pdt':[],'pos':[],'prp':[],'prp$':[],'rb':[],'rbr':[],'rbs':[],'rp':[],'sym':[],'to':[],'uh':[],'vb':[],'vbd':[],'vbg':[],'vbn':[],'vbp':[],'vbz':[],'wdt':[],'wp':[],'wp$':[],'wrb':[]}
 
 def ReadIn():
-    global file
-    global words
+    global file,words
     try:
         file = open('newwords.txt','r+')
         filestr = file.read().split(" ")
@@ -63,7 +59,6 @@ def answer(question):
     print(len(words),"")
     low = question.lower()
     questions = re.sub('[^\w]',' ',low).split() #list
-    #question = " ".join(questions)
     def writeout(words,question):
         r = []
         os.remove('newwords.txt')
@@ -73,6 +68,17 @@ def answer(question):
         s = ' '.join(r)
         file.write(s)
     writeout(words,question)
+
+    randomthought()
+##    def response():
+##        onelist = ['prp','vbd','dt','jj','nn']
+##        twolist = ['vbd','dt','jj','nn']
+##        threelist = ['prp','vbd','dt','jj','nn','in','prp$','nn']
+##        fourlist = ['in','dt','nns','vbd','jj','jjs','in','prp','vbd','jj']
+##        fivelist = ['nn','vbz','rb','jj','in','prp']
+##        fourlist = ['prp$','nn','vbz','jj']
+        
+        
         
 ##for word,tag in TextBlob("x").tags:
 ##    print(word,",",tag)
