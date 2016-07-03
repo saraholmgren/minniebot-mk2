@@ -1,4 +1,4 @@
-import random
+import random,re
 from random import randint
 from textblob import TextBlob
 
@@ -10,195 +10,84 @@ global sentencelist
 sentencelist = []
 
 def one(bigdict):
-    onelist = ['prp',]
-    if bigdict['prp'] == []:
-        print("key 'prp' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['prp']))
-    if bigdict['vbd'] == []:
-        print("key 'vbd' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['vbd']))
-    if bigdict['dt'] == []:
-        print("this 'dt' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['dt']))
-    if bigdict['jj'] == []:
-        print("this 'jj' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['jj']))
-    if bigdict['nn'] == []:
-        print("this 'nn' key has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['nn']))
-        
-    print(sentencelist)
+    list1 = ['prp','vbd','dt','jj','nn']
+    for x in list1:
+        if bigdict[x] == []:
+            print(x," has lots of value!")
+        else:
+            sentencelist.append(random.choice(bigdict[x]))
 
 def two(bigdict):
-    if bigdict['vbd'] == []:
-        print("key 'vbd' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['vbd']))
-    if bigdict['dt'] == []:
-        print("this 'dt' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['dt']))
-    if bigdict['jj'] == []:
-        print("this 'jj' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['jj']))
-    if bigdict['nn'] == []:
-        print("this 'nn' key has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['nn']))
-    print(sentencelist)
+    list1 = ['vbd','dt','jj','nn']
+    for x in list1:
+        if bigdict[x] == []:
+            print(x," has no value!")
+        else:
+            sentencelist.append(random.choice(bigdict[x]))
 
 def three(bigdict):
-    if bigdict['prp'] == []:
-        print("key 'prp' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['prp']))
-    if bigdict['vbd'] == []:
-        print("this 'vbd' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['vbd']))
-    if bigdict['dt'] == []:
-        print("this 'dt' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['dt']))
-    if bigdict['jj'] == []:
-        print("this 'jj' key has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['jj']))
-    if bigdict['nn'] == []:
-        print("this 'nn' key has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['nn']))
-    if bigdict['in'] == []:
-        print("this 'in' key has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['in']))
-    if bigdict['prp$'] == []:
-        print("this 'prp$' key has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['prp$']))
-    if bigdict['nn'] == []:
-        print("this 'nn' key has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['nn']))
+    list1 = ['prp','vbd','dt','jj','nn','in','prp$','nn']
+    for x in list1:
+        if bigdict[x] == []:
+            print(x," key has no value!")
+        else:
+            sentencelist.append(random.choice(bigdict[x]))
     z = randint(1,2)
     if z == 1:
         if bigdict['vbd'] == []:
-            print("this 'vbd' key has no value!")
+            print("'vbd' key has no value!")
         else:
             sentencelist.append(random.choice(bigdict['vbd']))
     elif z == 2:
         if bigdict['vbp'] == []:
-            print("this 'vbd' key has no value!")
+            print("'vbd' key has no value!")
         else:
             sentencelist.append(random.choice(bigdict['vbp']))
-    print(sentencelist)
 
 def four(bigdict):
-    if bigdict['in'] == []:
-        print("key 'in' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['in']))
-    if bigdict['dt'] == []:
-        print("this 'dt' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['dt']))
-    if bigdict['nns'] == []:
-        print("this 'nns' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['nns']))
+    list1 = ['in','dt','nns']
+    for x in list1:
+        if bigdict[x] == []:
+            print(x," has no value!")
+        else:
+            sentencelist.append(random.choice(bigdict['in']))
     z = randint(1,2)
     a = 0
     if z == 1:
         if bigdict['vbd'] == []:
-            print("this 'vbd' key has no value!")
+            print("'vbd' key has no value!")
         else:
             sentencelist.append(random.choice(bigdict['vbd']))
     elif z == 2:
         if bigdict['vbp'] == []:
-            print("this 'vbd' key has no value!")
+            print("'vbd' key has no value!")
     b = a+z
     if b == 1:
         c = 'vbd'
     else:
         c = 'vbp'
-
-    if bigdict['jj'] == []:
-        print("this 'jj' key has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['jj']))
-    if bigdict['jjs'] == []:
-        print("this 'jjs' key has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['jjs']))
-    if bigdict['in'] == []:
-        print("this 'in' key has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['in']))
-    if bigdict['prp'] == []:
-        print("this 'prp' key has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['prp']))
-    if bigdict[c] == []:
-        print("this",c,"key has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict[c]))
-    if bigdict['jj'] == []:
-        print("this jj key has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['jj']))
-    print(sentencelist)
+    list2 = ['jj','jjs','in','prp',c,'jj']
+    for x in list2:
+        if bigdict[x] == []:
+            print(x," key hole has no value!")
+        else:
+            sentencelist.append(random.choice(bigdict[x]))
 
 def five(bigdict):
-    if bigdict['nn'] == []:
-        print("key 'nn' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['nn']))
-    if bigdict['vbz'] == []:
-        print("key 'vbz' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['vbz']))
-    if bigdict['rb'] == []:
-        print("key 'rb' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['rb']))
-    if bigdict['jj'] == []:
-        print("key 'jj' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['jj']))
-    if bigdict['in'] == []:
-        print("key 'in' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['in']))
-    if bigdict['prp'] == []:
-        print("key 'prp' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['prp']))
-    print(sentencelist)
+    list1 = ['nn','vbz','rb','jj','in','prp']
+    for x in list1:
+        if bigdict[x] == []:
+            print("key '",x,"' has no value!")
+        else:
+            sentencelist.append(random.choice(bigdict[x]))
 
 def six(bigdict):
-    if bigdict['prp$'] == []:
-        print("key 'prp$' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['prp$']))
-    if bigdict['nn'] == []:
-        print("key 'nn' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['nn']))
-    if bigdict['vbz'] == []:
-        print("key 'vbz' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['vbz']))
-    if bigdict['jj'] == []:
-        print("key 'jj' has no value!")
-    else:
-        sentencelist.append(random.choice(bigdict['jj']))
-    print(sentencelist)
+    list1 = ['prp$','nn','vbz','jj']
+    for x in list1:
+        if bigdict[x] == []:
+            print(x," has no value!")
+        else:
+            sentencelist.append(random.choice(bigdict[x]))
 
 def pick_type(y,bigdict):
     if y == 1:
