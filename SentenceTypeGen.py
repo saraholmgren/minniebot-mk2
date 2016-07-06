@@ -60,7 +60,7 @@ def five(bigdict):
 
 def six(bigdict):
     sixlist = ['prp$','nn','vbz','jj']
-    for x in fourlist:
+    for x in sixlist:
         if bigdict[x] == []:
             print("key '",x,"' has no value!")
         else:
