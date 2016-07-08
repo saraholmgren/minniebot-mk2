@@ -5,10 +5,11 @@ from random import randint
 
 global words
 words = []
+badwords = []
 bigdict = {'cc':[],'cd':[],'dt':[],'ex':[],'fw':[],'in':[],'jj':[],'jjr':[],'jjs':[],'ls':[],'md':[],'nn':[],'nns':[],'nnp':[],'nnps':[],'pdt':[],'pos':[],'prp':[],'prp$':[],'rb':[],'rbr':[],'rbs':[],'rp':[],'sym':[],'to':[],'uh':[],'vb':[],'vbd':[],'vbg':[],'vbn':[],'vbp':[],'vbz':[],'wdt':[],'wp':[],'wp$':[],'wrb':[]}
 
 def ReadIn():
-    global file,words
+    global file,words,badwords
     try:
         file = open('newwords.txt','r+')
         filestr = file.read().split(" ")
@@ -16,11 +17,27 @@ def ReadIn():
             words.append(x)
         print('read file')
         file.close()
-    except BaseException as error:
-        print(error)
-    #print(words)
+    except BaseException as e:
+        print(e)
+    try:
+        file = open('badwords.txt','r+')
+        filestr = file.read().split(" ")
+        for x in filestr:
+            badwords.append(x)
+        print('read file')
+        file.close()
+    except BaseException as e:
+        print(e)
 ReadIn()
 
+def BadWords(questions):
+    for x in badwords:
+        if x in questions:
+            print(x,"is a bad word!")
+            questions.remove(x)
+        else:
+            pass
+    
 def randomthought():
     def PosTagger(words):
         for x in words:
@@ -59,6 +76,8 @@ def answer(question):
     print(len(words),"")
     low = question.lower()
     questions = re.sub('[^\w]',' ',low).split() #list
+    BadWords(questions)
+    print(questions)
     def writeout(words,question):
         r = []
         os.remove('newwords.txt')
@@ -68,17 +87,8 @@ def answer(question):
         s = ' '.join(r)
         file.write(s)
     writeout(words,question)
-
     randomthought()
-##    def response():
-##        onelist = ['prp','vbd','dt','jj','nn']
-##        twolist = ['vbd','dt','jj','nn']
-##        threelist = ['prp','vbd','dt','jj','nn','in','prp$','nn']
-##        fourlist = ['in','dt','nns','vbd','jj','jjs','in','prp','vbd','jj']
-##        fivelist = ['nn','vbz','rb','jj','in','prp']
-##        fourlist = ['prp$','nn','vbz','jj']
-        
-        
-        
+    
+
 ##for word,tag in TextBlob("x").tags:
 ##    print(word,",",tag)
