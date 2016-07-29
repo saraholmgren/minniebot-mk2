@@ -21,7 +21,7 @@ def ReadIn():
         print(e)
     try:
         file = open('badwords.txt','r+')
-        filestr = file.read().split(" ")
+        filestr = file.read().split(" ") 
         for x in filestr:
             badwords.append(x)
         print('read file')
@@ -33,7 +33,7 @@ ReadIn()
 def BadWords(questions):
     for x in badwords:
         if x in questions:
-            print(x,"is a bad word!")
+            print(x,"is a blocked word.")
             questions.remove(x)
         else:
             pass
@@ -73,13 +73,20 @@ def randomthought():
     grammar(sentencelist)
 
 def answer(question):
-    print(len(words),"")
+    print(len(words),"len(words)")
     low = question.lower()
     questions = re.sub('[^\w]',' ',low).split() #list
     BadWords(questions)
     print(questions)
     def writeout(words,question):
         r = []
+        if len(words) > 3000:
+            a1 = len(questions)
+            for x in range(0,a1):
+                words.remove(random.choice(words))
+            print(len(words),"len(words)")
+        else:
+            pass
         os.remove('newwords.txt')
         file = open('newwords.txt','w')
         words.extend(questions)
