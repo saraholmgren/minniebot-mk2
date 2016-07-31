@@ -71,36 +71,38 @@ def randomthought():
                     LanguageHandler.French(grammar_str)
                 else:
                     print(grammar_str)
-                
+            while len(sentencelist) > 0:
+                sentencelist.pop()
         elif randpunc == 2:
             f = '?'
             sentence_str = ' '.join(sentencelist)
             grammar_str = "".join((sentence_str,f))
             try:
                 IsAnswer
-            except NameError: # if it runs through randomthought()
+            except NameError: 
                 if randlang == 10:
                     LanguageHandler.pick_lang(grammar_str)
                 else:
                     print(grammar_str)
-            else: # if runs through answer()
+            else: 
                 if u != 'en':
                     LanguageHandler.French(grammar_str)
                 else:
                     print(grammar_str)
-
+            while len(sentencelist) > 0:
+                sentencelist.pop()
         else:
             h = '!'
             sentence_str = ' '.join(sentencelist)
             grammar_str = "".join((sentence_str,h))
             try:
                 IsAnswer
-            except NameError: # if it runs through randomthought()
+            except NameError:
                 if randlang == 10:
                     LanguageHandler.pick_lang(grammar_str)
                 else:
                     print(grammar_str)
-            else: # if runs through answer()
+            else:
                 if u != 'en':
                     LanguageHandler.French(grammar_str)
                 else:
@@ -116,7 +118,7 @@ def answer(question):
     DetectLang = TextBlob(question)
     detected = DetectLang.detect_language()
     if detected == 'en':
-        print("language detected: en") #TA
+        print("language detected: en")
         u = 'en'
         print(len(words),"len(words)")
         low = question.lower()

@@ -43,7 +43,9 @@ def Hebrew(grammar_str):
     languageblob = TextBlob(grammar_str)
     hebrew = languageblob.translate(from_lang='en',to='iw')
     print(hebrew)
-    
+
+def decide_lang()
+
 def pick_lang(grammar_str):
     picklanguage = randint(1,8)
     if picklanguage == 1:
