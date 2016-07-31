@@ -44,8 +44,24 @@ def Hebrew(grammar_str):
     hebrew = languageblob.translate(from_lang='en',to='iw')
     print(hebrew)
 
-def decide_lang()
-
+def CorrectLang(u,grammar_str):
+    if u == 'ja':
+        Japanese(grammar_str)
+    elif u == 'ko':
+        Korean(grammar_str)
+    elif u == 'fr':
+        French(grammar_str)
+    elif u == 'es':
+        Spanish(grammar_str)
+    elif u == 'de':
+        German(grammar_str)
+    elif u == 'it':
+        Italian(grammar_str)
+    elif u == 'fi':
+        Finnish(grammar_str)
+    else:
+        Hebrew(grammar_str)
+        
 def pick_lang(grammar_str):
     picklanguage = randint(1,8)
     if picklanguage == 1:

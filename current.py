@@ -68,7 +68,7 @@ def randomthought():
                     print(grammar_str)
             else: # if runs through answer()
                 if u != 'en':
-                    LanguageHandler.French(grammar_str)
+                    LanguageHandler.CorrectLang(u,grammar_str)
                 else:
                     print(grammar_str)
             while len(sentencelist) > 0:
@@ -86,7 +86,7 @@ def randomthought():
                     print(grammar_str)
             else: 
                 if u != 'en':
-                    LanguageHandler.French(grammar_str)
+                    LanguageHandler.CorrectLang(u,grammar_str)
                 else:
                     print(grammar_str)
             while len(sentencelist) > 0:
@@ -104,7 +104,7 @@ def randomthought():
                     print(grammar_str)
             else:
                 if u != 'en':
-                    LanguageHandler.French(grammar_str)
+                    LanguageHandler.CorrectLang(u,grammar_str)
                 else:
                     print(grammar_str)
             while len(sentencelist) > 0:
