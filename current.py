@@ -1,5 +1,6 @@
-import sys,random,re,nltk,os,SentenceTypeGen
+import sys,random,re,nltk,os,SentenceTypeGen,LanguageHandler
 from SentenceTypeGen import *
+from LanguageHandler import *
 from textblob import TextBlob
 from random import randint
 
@@ -37,9 +38,9 @@ def BadWords(questions):
             questions.remove(x)
         else:
             pass
-    
+
 def randomthought():
-    def PosTagger(words):
+    def PosTagger(words): 
         for x in words:
             sort = TextBlob(x).tags[0]
             word_tag = sort[1]
@@ -52,50 +53,97 @@ def randomthought():
     get_sentence()
 
     def grammar(sentencelist):
+        randlang = randint(1,10)
         randpunc = randint(1,3)
         if randpunc == 1:
             d = '.'
             sentence_str = ' '.join(sentencelist)
             grammar_str = "".join((sentence_str,d))
-            print(grammar_str)
+            try:
+                IsAnswer
+            except NameError: # if it runs through randomthought()
+                if randlang == 10:
+                    LanguageHandler.pick_lang(grammar_str)
+                else:
+                    print(grammar_str)
+            else: # if runs through answer()
+                if u != 'en':
+                    LanguageHandler.French(grammar_str)
+                else:
+                    print(grammar_str)
+                
         elif randpunc == 2:
             f = '?'
             sentence_str = ' '.join(sentencelist)
             grammar_str = "".join((sentence_str,f))
-            print(grammar_str)
+            try:
+                IsAnswer
+            except NameError: # if it runs through randomthought()
+                if randlang == 10:
+                    LanguageHandler.pick_lang(grammar_str)
+                else:
+                    print(grammar_str)
+            else: # if runs through answer()
+                if u != 'en':
+                    LanguageHandler.French(grammar_str)
+                else:
+                    print(grammar_str)
+
         else:
             h = '!'
             sentence_str = ' '.join(sentencelist)
             grammar_str = "".join((sentence_str,h))
-            print(grammar_str)
-        while len(sentencelist) > 0:
-            sentencelist.pop()
+            try:
+                IsAnswer
+            except NameError: # if it runs through randomthought()
+                if randlang == 10:
+                    LanguageHandler.pick_lang(grammar_str)
+                else:
+                    print(grammar_str)
+            else: # if runs through answer()
+                if u != 'en':
+                    LanguageHandler.French(grammar_str)
+                else:
+                    print(grammar_str)
+            while len(sentencelist) > 0:
+                sentencelist.pop()
     grammar(sentencelist)
 
-def answer(question):
-    print(len(words),"len(words)")
-    low = question.lower()
-    questions = re.sub('[^\w]',' ',low).split() #list
-    BadWords(questions)
-    print(questions)
-    def writeout(words,question):
-        r = []
-        if len(words) > 3000:
-            a1 = len(questions)
-            for x in range(0,a1):
-                words.remove(random.choice(words))
-            print(len(words),"len(words)")
-        else:
-            pass
-        os.remove('newwords.txt')
-        file = open('newwords.txt','w')
-        words.extend(questions)
-        r.extend(words)
-        s = ' '.join(r)
-        file.write(s)
-    writeout(words,question)
-    randomthought()
-    
 
+def answer(question):
+    global IsAnswer,detected,u
+    IsAnswer = True
+    DetectLang = TextBlob(question)
+    detected = DetectLang.detect_language()
+    if detected == 'en':
+        print("language detected: en") #TA
+        u = 'en'
+        print(len(words),"len(words)")
+        low = question.lower()
+        questions = re.sub('[^\w]',' ',low).split() #list
+        BadWords(questions)
+        print(questions)
+        def writeout(words,question,IsAnswer):
+            r = []
+            if len(words) > 3000:
+                a1 = len(questions)
+                for x in range(0,a1):
+                    words.remove(random.choice(words))
+                print(len(words),"len(words)")
+            else:
+                pass
+            os.remove('newwords.txt')
+            file = open('newwords.txt','w')
+            words.extend(questions)
+            r.extend(words)
+            s = ' '.join(r)
+            file.write(s)
+        writeout(words,question,IsAnswer)
+        randomthought()
+    else:
+        u = detected
+        print("language detected:",u)
+        randomthought()
+        
 ##for word,tag in TextBlob("x").tags:
 ##    print(word,",",tag)
