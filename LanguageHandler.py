@@ -59,8 +59,10 @@ def CorrectLang(u,grammar_str):
         Italian(grammar_str)
     elif u == 'fi':
         Finnish(grammar_str)
-    else:
+    elif u == 'iw':
         Hebrew(grammar_str)
+    else:
+        print("I think this language is",u,"I do not know",u)
         
 def pick_lang(grammar_str):
     picklanguage = randint(1,8)

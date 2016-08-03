@@ -73,6 +73,7 @@ def randomthought():
                     print(grammar_str)
             while len(sentencelist) > 0:
                 sentencelist.pop()
+            return grammar_str
         elif randpunc == 2:
             f = '?'
             sentence_str = ' '.join(sentencelist)
@@ -91,6 +92,7 @@ def randomthought():
                     print(grammar_str)
             while len(sentencelist) > 0:
                 sentencelist.pop()
+            return grammar_str
         else:
             h = '!'
             sentence_str = ' '.join(sentencelist)
@@ -109,7 +111,8 @@ def randomthought():
                     print(grammar_str)
             while len(sentencelist) > 0:
                 sentencelist.pop()
-    grammar(sentencelist)
+            return grammar_str
+    return grammar(sentencelist)
 
 
 def answer(question):
